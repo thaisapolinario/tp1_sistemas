@@ -68,6 +68,9 @@ void executar_comando(char **args, int background) {
         // Processo pai: espera o filho terminar, a menos que seja em background
         if (!background) {
             waitpid(pid, NULL, 0);
+        }else {
+            // Se for um comando em background, não espera
+            printf("Comando em background com PID: %d\n", pid);
         }
     }
 }
